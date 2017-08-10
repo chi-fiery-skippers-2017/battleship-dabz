@@ -1,0 +1,15 @@
+.board-grid-partial, th, td {
+  border: 1px solid #BABA00;
+}
+
+.board-grid-partial th, .board-grid-partial td {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  color: #6B6B6B;
+}
+
+.water {
+  background-color: #7BA8ED;
+}
+
