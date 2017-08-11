@@ -1,0 +1,21 @@
+<table class="board-grid-partial">
+  <tr>
+    <th></th>
+    <% @board.y_axis_numbers.each do |number| %>
+      <th><%= number %></th>
+    <% end %>
+  </tr>
+    <% @board.x_axis_letters.each_with_index do |letter, index| %>
+      <tr>
+        <th><%= letter  %></th>
+         <% @board.grid.select do |coordinate, info| %>
+          <% if coordinate.start_with?(letter) %>
+            <td id="coord-<%= coordinate %>" class="<%= tile_class(coordinate, @board) %>"></td>
+          <% end %>
+        <% end %>
+      </tr>
+
+  <% end %>
+</table>
+
+
