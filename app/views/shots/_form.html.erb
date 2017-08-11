@@ -1,0 +1,20 @@
+<%= form_for :shot, :url => board_shots_path(params[:id]) do |f| %>
+	<% if @shot.errors.any? %>
+		<div id="errors">
+    	<h2><%= pluralize(@post.errors.count, "errors") %> prevented this post from saving</h2>
+    	<ul>
+    		<% @post.errors.full_messages.each do |msg| %>
+    			<li><%= msg %></li>
+    		<% end %>
+    	</ul>
+    </div>
+  <% end %>
+  <p>
+  	<%= f.label :coordinate %>
+  	<%= f.text_field :coordinate%>
+  </p>
+  <p>
+  	<%= f.submit "Take shot!"%>
+  </p>
+<% end %>
+

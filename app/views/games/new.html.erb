@@ -1,0 +1,29 @@
+
+<%= render partial: "boards/grid", object: @board1, :locals => { :board => @board1 } %>
+
+<%= form_with(model: @board1, url: "/games", method: "POST", :local => false) do |f| %>
+	Place Ships: 
+	<%= f.hidden_field :board_id, :value => @board1.id %>
+	<ul>
+		<% @ships1.each do |ship| %>	
+			<%= f.fields_for "ships[]", ship do |sf| %>
+				<li> 
+					<%= ship.ship_type.name %> | Length: 
+					<%= ship.ship_type.squares %>
+					<div class="field"> 
+						<%= sf.label :start_point %>
+						<%= sf.text_field :start_point, id: ship.ship_type.name %>
+					</div>
+					<div class="field">	
+						<%= sf.label :orientation %>
+						<%= sf.select :orientation, [['horizontal', 'horizontal'], ['vertical', 'vertical']], id: ship.ship_type.name %>
+					</div>
+					
+				</li>
+			<% end %>
+		<% end %>
+	</ul>
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>

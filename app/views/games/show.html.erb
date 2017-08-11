@@ -1,0 +1,6 @@
+<h1>Welcome to Game #<%= @game.id %>!</h1>
+
+<%= render partial: "boards/grid", locals: { :@board => @player1_board }%>
+<%= render partial: "boards/grid", locals: { :@board => @player2_board }%>
+
+<%= render "shots/form" %>
